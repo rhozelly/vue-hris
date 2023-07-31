@@ -1,16 +1,18 @@
 
 import { createRouter, createWebHistory } from 'vue-router';
 
-import Dashboard from '@/views/Dashboard.vue'
-import Accounts from '@/views/Accounts.vue'
-import NotFound from '@/views/NotFound.vue'
-
+import Dashboard from '@/components/Dashboard.vue'
 
 const routes = [
-    { path: '/', component: Dashboard },
-    { path: '/accounts', component: Accounts },
-    { path: '/:catchAll(.*)', component: NotFound }
+    { path: '/', redirect: { name: 'Dashboard' } },
+    { path: '/dashboard', component: Dashboard, children: [
+        { path: '/', redirect: { name: 'Dashboard' } },
+        { path: 'home', name: 'Dashboard', component: Dashboard }
+      ]
+    },
+//  { path: '/:catchAll(.*)', component: NotFound }
 ]
+
 
 const router = createRouter({
     history: createWebHistory(),
