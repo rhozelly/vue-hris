@@ -14,6 +14,7 @@
           <Navbar />
   
           <div class="p-6 bg-gray-100 mb-20">
+            <Breadcrumbs></Breadcrumbs>
             <router-view></router-view>
           </div>
   
@@ -31,7 +32,8 @@
   import Sidebar from './components/Sidebar.vue'
   import Navbar from './components/Navbar.vue'
   import Footer from './components/Footer.vue'
-  
+  import Breadcrumbs from './components/Breadcrumbs.vue';
+
   export default {
     name: 'Dashboard',
     computed: {
@@ -40,7 +42,8 @@
     components: {
       Sidebar,
       Navbar,
-      Footer
+      Footer,
+      Breadcrumbs
     }
   }
   </script>
